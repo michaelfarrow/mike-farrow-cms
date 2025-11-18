@@ -1,2 +1,2 @@
-npm run generate:all
+npm run generate:schema
 git add schema.json
