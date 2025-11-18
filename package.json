@@ -42,6 +42,6 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "exports": {
-    "resolve": "./presentation/resolve.ts"
+    "./resolve": "./presentation/resolve.ts"
   }
 }
