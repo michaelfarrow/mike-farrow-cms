@@ -1,0 +1,101 @@
+import { codeField } from '@/schemas/common/fields/code';
+import type { CustomFieldOptions } from '@/schemas/common/fields/field';
+import {
+  imageField,
+  responsiveImageField,
+} from '@/schemas/common/fields/image';
+import { markdownObjectField } from '@/schemas/common/fields/markdown-object';
+import { quoteField } from '@/schemas/common/fields/quote';
+import { remoteVideoField, videoField } from '@/schemas/common/fields/video';
+import { conditionalField, conditionalFields } from '@/schemas/common/utils';
+import { ContentRowPreview } from '@/schemas/previews/content-row';
+
+import { ArrayDefinition, defineArrayMember, defineField } from 'sanity';
+
+// import {
+//   externalLinkAnnotation,
+//   internalLinkAnnotation,
+// } from '@/schemas/common/blocks/annotations/link';
+
+export function contentArrayField({
+  text,
+  images,
+  videos,
+  columns,
+  ...rest
+}: CustomFieldOptions<
+  ArrayDefinition,
+  'of',
+  {
+    text?: boolean;
+    images?: boolean;
+    videos?: boolean;
+    columns?: boolean;
+  }
+>) {
+  return defineField({
+    ...rest,
+    type: 'array',
+    of: [
+      defineArrayMember({
+        type: 'object',
+        name: 'item',
+        fields: [
+          defineField({
+            name: 'name',
+            type: 'string',
+          }),
+          defineField({
+            name: 'span',
+            type: 'string',
+            initialValue: 'full',
+            validation: (rule) => rule.required(),
+            options: {
+              layout: 'radio',
+              list: [
+                { value: 'half', title: 'Half width' },
+                { value: 'full', title: 'Full width' },
+              ],
+              direction: 'horizontal',
+            },
+          }),
+          defineField({
+            name: 'content',
+            type: 'array',
+            of: [
+              ...conditionalFields(
+                conditionalField(text, () => [
+                  markdownObjectField({ name: 'md', title: 'Markdown' }),
+                  quoteField({ name: 'quote' }),
+                  codeField({ name: 'code' }),
+                ]),
+                conditionalField(images, () => [
+                  imageField({ name: 'image', required: true, caption: true }),
+                  responsiveImageField({
+                    name: 'responsiveImage',
+                    required: true,
+                    caption: true,
+                  }),
+                ]),
+                conditionalField(videos, () => [
+                  videoField({ name: 'video' }),
+                  remoteVideoField({ name: 'remoteVideo', caption: true }),
+                ])
+              ),
+            ],
+          }),
+        ],
+        preview: {
+          select: {
+            title: 'name',
+            span: 'span',
+            content: 'content',
+          },
+        },
+        components: {
+          preview: ContentRowPreview,
+        },
+      }),
+    ],
+  });
+}

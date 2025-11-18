@@ -1,0 +1,44 @@
+{
+  "name": "@mikefarrow/cms",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "lint": "pnpm exec eslint .",
+    "deploy-graphql": "sanity graphql deploy",
+    "generate:schema": "sanity schema extract",
+    "generate:types": "sanity typegen generate",
+    "generate:all": "npm run generate:schema && npm run generate:types",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "sanity": "^4.8.0"
+  },
+  "devDependencies": {
+    "@mikefarrow/prettier": "github:michaelfarrow/prettier#3.6.2-1",
+    "@sanity/code-input": "^6.0.1",
+    "@sanity/eslint-config-studio": "^5.0.2",
+    "@sanity/google-maps-input": "^4.2.0",
+    "@sanity/vision": "^4.7.0",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "change-case": "^5.4.4",
+    "easymde": "^2.20.0",
+    "eslint": "^9.38.0",
+    "flat": "^6.0.1",
+    "husky": "^9.1.7",
+    "lodash-es": "^4.17.21",
+    "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "sanity-plugin-markdown": "^6.0.0",
+    "styled-components": "^6.1.19",
+    "title-case": "^4.3.2",
+    "typescript": "^5.9.3",
+    "typescript-plugin-css-modules": "^5.2.0",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

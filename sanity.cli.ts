@@ -1,0 +1,14 @@
+import { config } from '@/lib/config';
+import tsconfigPaths from 'vite-tsconfig-paths';
+
+import { defineCliConfig } from 'sanity/cli';
+
+export default defineCliConfig({
+  api: config.studio,
+
+  deployment: { autoUpdates: false },
+
+  vite: {
+    plugins: [tsconfigPaths()],
+  },
+});
