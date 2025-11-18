@@ -1,6 +1,7 @@
 {
   "name": "@mikefarrow/cms",
   "version": "1.0.0",
+  "main": "exports.ts",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",
@@ -40,8 +41,5 @@
     "typescript": "^5.9.3",
     "typescript-plugin-css-modules": "^5.2.0",
     "vite-tsconfig-paths": "^5.1.4"
-  },
-  "exports": {
-    "./resolve": "./presentation/resolve.ts"
   }
 }

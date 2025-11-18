@@ -1,5 +1,6 @@
 /**/*
 !/package.json
 !/schema.json
+!/exports.ts
 !/presentation/resolve.ts
 !/presentation/resolver.ts
