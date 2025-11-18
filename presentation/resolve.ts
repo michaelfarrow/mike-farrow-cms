@@ -2,7 +2,7 @@ import {
   createPathResolver,
   createStaticResolver,
   ResolveConfig,
-} from '@/presentation/resolver';
+} from './resolver';
 
 const cvResolver = createStaticResolver('/cv', 'CV');
 
