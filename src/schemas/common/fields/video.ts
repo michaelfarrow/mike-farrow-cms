@@ -4,8 +4,7 @@ import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { imageField } from '@/schemas/common/fields/image';
 import { IconVideo } from '@/schemas/common/icons';
 import { DocumentPreview } from '@/schemas/previews/document';
-
-import { SUPPORTED_VIDEO_TYPES } from './video-types';
+import { SUPPORTED_VIDEO_TYPES } from '@shared/types';
 
 export type VideoFieldDefinition = CustomFieldOptions<
   ObjectDefinition,
