@@ -5,10 +5,10 @@ import {
   ObjectDefinition,
 } from 'sanity';
 
-import { config } from '@/lib/config';
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { IconImage, IconImages } from '@/schemas/common/icons';
 import { DocumentPreview } from '@/schemas/previews/document';
+import { config } from '@shared/config';
 
 const breakpointsOrdered = Object.entries(config.breakpoints)
   .map(([key, breakpoint]) => ({ key, breakpoint }))

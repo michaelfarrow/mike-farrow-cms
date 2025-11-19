@@ -7,10 +7,10 @@ import { defineDocuments, presentationTool } from 'sanity/presentation';
 import { structureTool } from 'sanity/structure';
 
 import { Logo } from '@/components/logo';
-import { config } from '@/lib/config';
 import { resolveDynamic } from '@/presentation/resolve-dynamic';
 import { resolveStudio } from '@/presentation/resolve-studio';
 import { schemas, schemasFlat } from '@/schemas';
+import { config } from '@shared/config';
 
 import '@/styles/global.css';
 

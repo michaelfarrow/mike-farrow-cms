@@ -2,7 +2,7 @@ import groq from 'groq';
 
 import { CustomValidator } from 'sanity';
 
-import { config } from '@/lib/config';
+import { config } from '@shared/config';
 
 export const unique: CustomValidator<any | undefined> = async (
   value,
