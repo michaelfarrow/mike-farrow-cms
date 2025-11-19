@@ -29,4 +29,4 @@
 *.local
 
 # Project
-sanity.d.ts
+/sanity.d.ts
