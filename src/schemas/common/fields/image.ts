@@ -8,9 +8,9 @@ import {
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { IconImage, IconImages } from '@/schemas/common/icons';
 import { DocumentPreview } from '@/schemas/previews/document';
-import { config } from '@shared/config';
+import { BREAKPOINTS } from '@shared/config';
 
-const breakpointsOrdered = Object.entries(config.breakpoints)
+const breakpointsOrdered = Object.entries(BREAKPOINTS)
   .map(([key, breakpoint]) => ({ key, breakpoint }))
   .sort((a, b) => (a.breakpoint.width < b.breakpoint.width ? -1 : 1));
 
@@ -142,8 +142,7 @@ export function responsiveImageField({
               prepare: ({ media, breakpoint }) => ({
                 media,
                 title:
-                  (breakpoint &&
-                    (config.breakpoints as any)[breakpoint]?.name) ||
+                  (breakpoint && (BREAKPOINTS as any)[breakpoint]?.name) ||
                   '[No breakpoint selected]',
               }),
             },
