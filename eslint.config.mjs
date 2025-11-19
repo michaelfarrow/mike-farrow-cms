@@ -4,6 +4,6 @@ import studio from '@sanity/eslint-config-studio';
 export default [
   ...studio,
   {
-    ignores: ['node_modules/**'],
+    ignores: ['node_modules/**', 'sanity.d.ts'],
   },
 ];
