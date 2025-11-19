@@ -1,1 +1,1 @@
-export { resolve } from './presentation/resolve';
+export { resolve } from './shared/resolve';

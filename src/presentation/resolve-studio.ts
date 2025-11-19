@@ -4,8 +4,8 @@ import { mapKeys } from 'lodash-es';
 import { titleCase } from 'title-case';
 import { PartialDeep, SetOptional } from 'type-fest';
 
-import { resolve, resolvePrivate } from './resolve';
-import { PathResolver, StaticResolver } from './resolver';
+import { resolve, resolvePrivate } from '@shared/resolve';
+import { PathResolver, StaticResolver } from '@shared/resolver';
 
 export type TypeResolver = ReturnType<ReturnType<typeof createTypeResolver>>;
 

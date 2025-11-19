@@ -2,6 +2,7 @@ const env = process.env.NODE_ENV;
 const production = env === 'production';
 
 export const config = {
+  title: 'Mike Farrow',
   studio: {
     projectId: 'h0q0fht4',
     dataset: process.env.SANITY_STUDIO_DATASET || 'development',

@@ -1,13 +1,14 @@
-import { resolveDynamicQuery } from '@/lib/queries/resolve-dynamic';
-import { TypeResolver } from '@/presentation/resolve-studio';
-import { SchemaType } from '@/schemas';
 import { sortBy, uniqBy } from 'lodash-es';
-import { SetOptional } from 'node_modules/type-fest/source/set-optional';
 import { map, Observable } from 'rxjs';
+import { SetOptional } from 'type-fest';
 
 import { type ClientReturn } from '@sanity/client';
 import { getDraftId } from 'sanity';
 import { DocumentLocationResolver } from 'sanity/presentation';
+
+import { resolveDynamicQuery } from '@/lib/queries/resolve-dynamic';
+import { TypeResolver } from '@/presentation/resolve-studio';
+import { SchemaType } from '@/schemas';
 
 export function resolveDynamic(
   resolve: Record<SchemaType, SetOptional<TypeResolver, 'document'>>,

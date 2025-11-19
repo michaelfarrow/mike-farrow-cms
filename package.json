@@ -12,7 +12,10 @@
     "generate:schema": "sanity schema extract",
     "generate:types": "sanity typegen generate",
     "generate:all": "npm run generate:schema && npm run generate:types",
-    "prepare": "husky"
+    "prepare": "husky",
+    "check": "npm run check:main && npm run check:shared",
+    "check:main": "tsc --noEmit",
+    "check:shared": "tsc --noEmit --project shared/tsconfig.json"
   },
   "dependencies": {
     "flat": "^6.0.1",

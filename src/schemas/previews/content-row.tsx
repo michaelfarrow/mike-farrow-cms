@@ -1,7 +1,8 @@
-import { IconColumns, IconRows } from '@/schemas/common/icons';
 import { capitalCase } from 'change-case';
 
 import { PreviewProps } from 'sanity';
+
+import { IconColumns, IconRows } from '@/schemas/common/icons';
 
 import styles from './content-row.module.css';
 

@@ -1,9 +1,3 @@
-import { Logo } from '@/components/logo';
-import { config } from '@/lib/config';
-import { resolveDynamic } from '@/presentation/resolve-dynamic';
-import { resolveStudio } from '@/presentation/resolve-studio';
-import { schemas, schemasFlat } from '@/schemas';
-
 import { codeInput } from '@sanity/code-input';
 import { googleMapsInput } from '@sanity/google-maps-input';
 import { visionTool } from '@sanity/vision';
@@ -11,6 +5,12 @@ import { defineConfig } from 'sanity';
 import { markdownSchema } from 'sanity-plugin-markdown';
 import { defineDocuments, presentationTool } from 'sanity/presentation';
 import { structureTool } from 'sanity/structure';
+
+import { Logo } from '@/components/logo';
+import { config } from '@/lib/config';
+import { resolveDynamic } from '@/presentation/resolve-dynamic';
+import { resolveStudio } from '@/presentation/resolve-studio';
+import { schemas, schemasFlat } from '@/schemas';
 
 import '@/styles/global.css';
 

@@ -1,11 +1,11 @@
-import type { CustomFieldOptions } from '@/schemas/common/fields/field';
-
 import { CodeDefinition } from '@sanity/code-input';
 import { defineField } from 'sanity';
 
+import type { CustomFieldOptions } from '@/schemas/common/fields/field';
+
 export function codeField({
   ...rest
-}: CustomFieldOptions<CodeDefinition, 'options'>) {
+}: CustomFieldOptions<CodeDefinition, 'options' | 'validation'>) {
   return defineField({
     ...rest,
     type: 'code',
