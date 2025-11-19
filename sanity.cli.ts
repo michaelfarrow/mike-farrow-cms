@@ -1,7 +1,8 @@
-import { config } from '@/lib/config';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 import { defineCliConfig } from 'sanity/cli';
+
+import { config } from '@/lib/config';
 
 export default defineCliConfig({
   api: config.studio,

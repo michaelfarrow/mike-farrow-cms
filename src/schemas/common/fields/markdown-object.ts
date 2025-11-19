@@ -1,9 +1,9 @@
+import { defineField, ObjectDefinition } from 'sanity';
+
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { markdownField } from '@/schemas/common/fields/markdown';
 import { IconDocumentText } from '@/schemas/common/icons';
 import { MarkdownPreview } from '@/schemas/previews/markdown';
-
-import { defineField, ObjectDefinition } from 'sanity';
 
 export function markdownObjectField({
   ...rest

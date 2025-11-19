@@ -1,8 +1,8 @@
+import { defineArrayMember, defineField, defineType } from 'sanity';
+
 import { dateField } from '@/schemas/common/fields/date';
 import { titleFields } from '@/schemas/common/fields/title';
 import { IconEducation, IconExperience } from '@/schemas/common/icons';
-
-import { defineArrayMember, defineField, defineType } from 'sanity';
 
 const experience = defineArrayMember({
   type: 'object',

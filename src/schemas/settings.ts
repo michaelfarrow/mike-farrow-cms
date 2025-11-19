@@ -1,6 +1,6 @@
-import { IconSettings } from '@/schemas/common/icons';
-
 import { defineField, defineType } from 'sanity';
+
+import { IconSettings } from '@/schemas/common/icons';
 
 export const settings = defineType({
   name: 'settings',

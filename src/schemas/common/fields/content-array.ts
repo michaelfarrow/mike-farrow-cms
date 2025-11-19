@@ -1,3 +1,5 @@
+import { ArrayDefinition, defineArrayMember, defineField } from 'sanity';
+
 import { codeField } from '@/schemas/common/fields/code';
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import {
@@ -9,8 +11,6 @@ import { quoteField } from '@/schemas/common/fields/quote';
 import { remoteVideoField, videoField } from '@/schemas/common/fields/video';
 import { conditionalField, conditionalFields } from '@/schemas/common/utils';
 import { ContentRowPreview } from '@/schemas/previews/content-row';
-
-import { ArrayDefinition, defineArrayMember, defineField } from 'sanity';
 
 // import {
 //   externalLinkAnnotation,

@@ -1,9 +1,9 @@
+import { defineField, ObjectDefinition } from 'sanity';
+
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { imageField } from '@/schemas/common/fields/image';
 import { IconVideo } from '@/schemas/common/icons';
 import { DocumentPreview } from '@/schemas/previews/document';
-
-import { defineField, ObjectDefinition } from 'sanity';
 
 import { SUPPORTED_VIDEO_TYPES } from './video-types';
 

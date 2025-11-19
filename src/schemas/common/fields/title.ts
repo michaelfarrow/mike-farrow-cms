@@ -1,10 +1,11 @@
+import { SetOptional } from 'type-fest';
+
+import { defineField, StringDefinition } from 'sanity';
+
 import {
   extendValidation,
   type CustomFieldOptions,
 } from '@/schemas/common/fields/field';
-import { SetOptional } from 'type-fest';
-
-import { defineField, StringDefinition } from 'sanity';
 
 export type TitleFieldsOptions = SetOptional<
   CustomFieldOptions<StringDefinition, null, { slug?: boolean }>,

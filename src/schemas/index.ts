@@ -1,3 +1,5 @@
+import { defineType } from 'sanity';
+
 import { album } from '@/schemas/album';
 import { category } from '@/schemas/category';
 import { common } from '@/schemas/common';
@@ -7,8 +9,6 @@ import { link } from '@/schemas/link';
 import { project } from '@/schemas/project';
 import { settings } from '@/schemas/settings';
 import { skill } from '@/schemas/skill';
-
-import { defineType } from 'sanity';
 
 type Schema = ReturnType<typeof defineType>;
 

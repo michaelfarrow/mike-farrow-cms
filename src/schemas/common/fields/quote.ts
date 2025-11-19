@@ -1,9 +1,9 @@
+import { defineField, ObjectDefinition } from 'sanity';
+
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { markdownField } from '@/schemas/common/fields/markdown';
 import { IconQuote } from '@/schemas/common/icons';
 import { DocumentPreview } from '@/schemas/previews/document';
-
-import { defineField, ObjectDefinition } from 'sanity';
 
 export function quoteField({
   caption,

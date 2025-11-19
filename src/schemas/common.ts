@@ -1,3 +1,5 @@
+import { defineType } from 'sanity';
+
 import { codeField } from '@/schemas/common/fields/code';
 import {
   imageField,
@@ -6,8 +8,6 @@ import {
 import { markdownObjectField } from '@/schemas/common/fields/markdown-object';
 import { quoteField } from '@/schemas/common/fields/quote';
 import { remoteVideoField, videoField } from '@/schemas/common/fields/video';
-
-import { defineType } from 'sanity';
 
 export const common = defineType({
   name: 'common',

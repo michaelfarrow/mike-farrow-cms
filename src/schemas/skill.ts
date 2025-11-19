@@ -1,8 +1,8 @@
+import { defineField, defineType } from 'sanity';
+
 import { nameFields } from '@/schemas/common/fields/title';
 import { IconSkill } from '@/schemas/common/icons';
 import { unique } from '@/validation/unique';
-
-import { defineField, defineType } from 'sanity';
 
 export const skill = defineType({
   name: 'skill',

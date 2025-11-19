@@ -1,3 +1,7 @@
+import { titleCase } from 'title-case';
+
+import { defineField, defineType } from 'sanity';
+
 import { nameFields } from '@/schemas/common/fields/title';
 import {
   IconCompany,
@@ -6,9 +10,6 @@ import {
   IconInstitution,
   IconUnknown,
 } from '@/schemas/common/icons';
-import { titleCase } from 'title-case';
-
-import { defineField, defineType } from 'sanity';
 
 const ICON_MAP = {
   individual: IconIndividual,

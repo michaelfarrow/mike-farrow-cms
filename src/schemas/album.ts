@@ -1,9 +1,9 @@
+import { defineField, defineType } from 'sanity';
+
 import { dateField } from '@/schemas/common/fields/date';
 import { imageField } from '@/schemas/common/fields/image';
 import { nameFields } from '@/schemas/common/fields/title';
 import { IconAlbum } from '@/schemas/common/icons';
-
-import { defineField, defineType } from 'sanity';
 
 export const album = defineType({
   name: 'album',

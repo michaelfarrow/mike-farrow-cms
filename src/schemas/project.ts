@@ -1,3 +1,7 @@
+import { camelCase } from 'change-case';
+
+import { defineArrayMember, defineField, defineType } from 'sanity';
+
 import { contentArrayField } from '@/schemas/common/fields/content-array';
 import { dateField } from '@/schemas/common/fields/date';
 import { imageField } from '@/schemas/common/fields/image';
@@ -9,9 +13,6 @@ import {
   IconProject,
   IconUnknown,
 } from '@/schemas/common/icons';
-import { camelCase } from 'change-case';
-
-import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export const project = defineType({
   name: 'project',

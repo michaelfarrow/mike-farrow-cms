@@ -1,6 +1,6 @@
-import type { CustomFieldOptions } from '@/schemas/common/fields/field';
-
 import { DateDefinition, defineField } from 'sanity';
+
+import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 
 export function dateField({
   options,
