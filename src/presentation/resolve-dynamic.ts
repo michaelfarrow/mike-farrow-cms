@@ -30,7 +30,7 @@ export function resolveDynamic(
       query,
       { id, draftId: getDraftId(id), deep: Boolean(typeConfig?.deep) },
       { perspective: 'drafts' }
-    ) as Observable<ClientReturn<typeof resolveDynamicQuery>>;
+    ) as Observable<ClientReturn<typeof resolveDynamicQuery, null>>;
 
     return doc$.pipe(
       map((res) => {
