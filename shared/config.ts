@@ -1,3 +1,6 @@
+import { Simplify } from './lib/types';
+import { mergeDeep } from './lib/utils';
+
 const env = process.env.NODE_ENV;
 const production = env === 'production';
 
@@ -11,27 +14,6 @@ type DefineConfigCreateOptions = {
 };
 
 type DefaultConfig = ReturnType<typeof getDefaultConfig>;
-
-function isObject(item: any) {
-  return item && typeof item === 'object' && !Array.isArray(item);
-}
-
-function deepMerge(target: any, ...sources: any[]): any {
-  if (!sources.length) return target;
-  const source = sources.shift();
-
-  if (isObject(target) && isObject(source)) {
-    for (const key in source) {
-      if (isObject(source[key])) {
-        if (!target[key]) Object.assign(target, { [key]: {} });
-        deepMerge(target[key], source[key]);
-      } else {
-        Object.assign(target, { [key]: source[key] });
-      }
-    }
-  }
-  return deepMerge(target, ...sources);
-}
 
 function getDefaultConfig({ dataset }: DefineConfigOptions) {
   return {
@@ -66,12 +48,12 @@ export function defineConfig(options: DefineConfigOptions): DefaultConfig;
 export function defineConfig<T extends object>(
   options: DefineConfigOptions,
   create: (options: DefineConfigCreateOptions) => T
-): DefaultConfig & T;
+): Simplify<DefaultConfig & T>;
 
 export function defineConfig<T extends object>(
   options: DefineConfigOptions,
   create?: (options: DefineConfigCreateOptions) => T
 ) {
   const config = getDefaultConfig(options);
-  return deepMerge(config, (create && create({ production, config })) || {});
+  return mergeDeep(config, (create && create({ production, config })) || {});
 }
