@@ -5,7 +5,33 @@ type DefineConfigOptions = {
   dataset?: string;
 };
 
+type DefineConfigCreateOptions = {
+  production: boolean;
+  config: DefaultConfig;
+};
+
 type DefaultConfig = ReturnType<typeof getDefaultConfig>;
+
+function isObject(item: any) {
+  return item && typeof item === 'object' && !Array.isArray(item);
+}
+
+function deepMerge(target: any, ...sources: any[]): any {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        deepMerge(target[key], source[key]);
+      } else {
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
+  }
+  return deepMerge(target, ...sources);
+}
 
 function getDefaultConfig({ dataset }: DefineConfigOptions) {
   return {
@@ -28,18 +54,24 @@ function getDefaultConfig({ dataset }: DefineConfigOptions) {
       vimeo:
         /^(?:http|https)?:?\/?\/?(?:www\.)?(?:player\.)?vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|video\/|)(\d+)(?:|\/\?)$/,
     },
+    url: {
+      app: production
+        ? 'https://mike-farrow-portfolio-sanity-next.vercel.app'
+        : 'http://localhost:3000',
+    },
   };
 }
 
 export function defineConfig(options: DefineConfigOptions): DefaultConfig;
 export function defineConfig<T extends object>(
   options: DefineConfigOptions,
-  create: (production: boolean) => T
+  create: (options: DefineConfigCreateOptions) => T
 ): DefaultConfig & T;
 
 export function defineConfig<T extends object>(
   options: DefineConfigOptions,
-  create?: (production: boolean) => T
+  create?: (options: DefineConfigCreateOptions) => T
 ) {
-  return { ...getDefaultConfig(options), ...(create && create(production)) };
+  const config = getDefaultConfig(options);
+  return deepMerge(config, (create && create({ production, config })) || {});
 }
