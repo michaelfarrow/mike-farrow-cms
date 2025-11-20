@@ -5,12 +5,12 @@ import {
   ObjectDefinition,
 } from 'sanity';
 
+import { config } from '@/lib/config';
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { IconImage, IconImages } from '@/schemas/common/icons';
 import { DocumentPreview } from '@/schemas/previews/document';
-import { BREAKPOINTS } from '@shared/config';
 
-const breakpointsOrdered = Object.entries(BREAKPOINTS)
+const breakpointsOrdered = Object.entries(config.breakpoints)
   .map(([key, breakpoint]) => ({ key, breakpoint }))
   .sort((a, b) => (a.breakpoint.width < b.breakpoint.width ? -1 : 1));
 
@@ -142,7 +142,8 @@ export function responsiveImageField({
               prepare: ({ media, breakpoint }) => ({
                 media,
                 title:
-                  (breakpoint && (BREAKPOINTS as any)[breakpoint]?.name) ||
+                  (breakpoint &&
+                    (config.breakpoints as any)[breakpoint]?.name) ||
                   '[No breakpoint selected]',
               }),
             },

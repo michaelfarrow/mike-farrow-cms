@@ -1,10 +1,10 @@
 import { defineField, ObjectDefinition } from 'sanity';
 
+import { config } from '@/lib/config';
 import type { CustomFieldOptions } from '@/schemas/common/fields/field';
 import { imageField } from '@/schemas/common/fields/image';
 import { IconVideo } from '@/schemas/common/icons';
 import { DocumentPreview } from '@/schemas/previews/document';
-import { SUPPORTED_VIDEO_TYPES } from '@shared/config';
 
 export type VideoFieldDefinition = CustomFieldOptions<
   ObjectDefinition,
@@ -80,7 +80,7 @@ export function remoteVideoField({
       validation: (rule) =>
         rule.required().custom((value) => {
           let valid = false;
-          for (const regex of Object.values(SUPPORTED_VIDEO_TYPES)) {
+          for (const regex of Object.values(config.videoTypes)) {
             if (regex.test(value || '')) {
               valid = true;
               break;
@@ -88,7 +88,7 @@ export function remoteVideoField({
           }
           return (
             valid ||
-            `Invalid video url, must be one of: ${Object.keys(SUPPORTED_VIDEO_TYPES).join(', ')}`
+            `Invalid video url, must be one of: ${Object.keys(config.videoTypes).join(', ')}`
           );
         }),
     }),

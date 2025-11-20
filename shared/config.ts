@@ -15,6 +15,19 @@ function getDefaultConfig({ dataset }: DefineConfigOptions) {
       dataset: dataset || 'development',
       apiVersion: 'vX',
     },
+    breakpoints: {
+      sm: { name: 'Small', width: 640 },
+      md: { name: 'Medium', width: 768 },
+      lg: { name: 'Large', width: 1024 },
+      xl: { name: 'Extra Large', width: 1280 },
+      '2xl': { name: '2x Extra Large', width: 1536 },
+    },
+    videoTypes: {
+      youTube:
+        /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(?:-nocookie)?\.com|youtu.be))(\/(?:[\w-]+\?v=|embed\/|live\/|v\/)?)([\w-]+)(\S+)?$/,
+      vimeo:
+        /^(?:http|https)?:?\/?\/?(?:www\.)?(?:player\.)?vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|video\/|)(\d+)(?:|\/\?)$/,
+    },
   };
 }
 
@@ -30,18 +43,3 @@ export function defineConfig<T extends object>(
 ) {
   return { ...getDefaultConfig(options), ...(create && create(production)) };
 }
-
-export const BREAKPOINTS = {
-  sm: { name: 'Small', width: 640 },
-  md: { name: 'Medium', width: 768 },
-  lg: { name: 'Large', width: 1024 },
-  xl: { name: 'Extra Large', width: 1280 },
-  '2xl': { name: '2x Extra Large', width: 1536 },
-};
-
-export const SUPPORTED_VIDEO_TYPES = {
-  youTube:
-    /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(?:-nocookie)?\.com|youtu.be))(\/(?:[\w-]+\?v=|embed\/|live\/|v\/)?)([\w-]+)(\S+)?$/,
-  vimeo:
-    /^(?:http|https)?:?\/?\/?(?:www\.)?(?:player\.)?vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|video\/|)(\d+)(?:|\/\?)$/,
-};
