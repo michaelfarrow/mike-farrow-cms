@@ -6,6 +6,7 @@ import { IconEducation, IconExperience } from '@/schemas/common/icons';
 
 const experience = defineArrayMember({
   type: 'object',
+  name: 'experience',
   icon: IconExperience,
   fields: [
     ...titleFields({ slug: false }),
@@ -42,6 +43,7 @@ const experience = defineArrayMember({
 
 const education = defineArrayMember({
   type: 'object',
+  name: 'education',
   icon: IconEducation,
   fields: [
     ...titleFields({ name: 'qualification', slug: false }),

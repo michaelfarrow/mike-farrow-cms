@@ -247,6 +247,13 @@
                   "type": "string"
                 },
                 "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "experience"
+                }
               }
             },
             "rest": {
@@ -321,6 +328,13 @@
                   "type": "string"
                 },
                 "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "education"
+                }
               }
             },
             "rest": {
@@ -1048,6 +1062,13 @@
                                       ]
                                     },
                                     "optional": true
+                                  },
+                                  "_type": {
+                                    "type": "objectAttribute",
+                                    "value": {
+                                      "type": "string",
+                                      "value": "alternativeImage"
+                                    }
                                   }
                                 },
                                 "rest": {
@@ -2360,6 +2381,13 @@
                           ]
                         },
                         "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "alternativeImage"
+                        }
                       }
                     },
                     "rest": {

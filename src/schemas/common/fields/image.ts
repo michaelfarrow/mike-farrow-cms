@@ -115,6 +115,7 @@ export function responsiveImageField({
         of: [
           defineArrayMember({
             type: 'object',
+            name: 'alternativeImage',
             fields: [
               imageField({
                 name: 'image',
