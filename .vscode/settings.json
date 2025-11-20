@@ -7,6 +7,9 @@
   "[typescriptreact]": {
     "editor.wordWrap": "bounded"
   },
+  "[json]": {
+    "editor.wordWrap": "bounded"
+  },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.workingDirectories": ["./app", "./studio"],
