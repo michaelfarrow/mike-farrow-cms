@@ -38,9 +38,7 @@ function getDefaultConfig({ dataset }: DefineConfigOptions) {
         /^(?:http|https)?:?\/?\/?(?:www\.)?(?:player\.)?vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|video\/|)(\d+)(?:|\/\?)$/,
     },
     url: {
-      app: production
-        ? 'https://mike-farrow-portfolio-sanity-next.vercel.app'
-        : 'http://localhost:3000',
+      app: production ? 'https://app.farrow.io' : 'http://localhost:3000',
     },
   };
 }
