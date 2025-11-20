@@ -1,4 +1,5 @@
-import { Simplify } from './lib/types';
+import { SimplifyDeep } from 'type-fest';
+
 import { mergeDeep } from './lib/utils';
 
 const env = process.env.NODE_ENV;
@@ -48,7 +49,7 @@ export function defineConfig(options: DefineConfigOptions): DefaultConfig;
 export function defineConfig<T extends object>(
   options: DefineConfigOptions,
   create: (options: DefineConfigCreateOptions) => T
-): Simplify<DefaultConfig & T>;
+): SimplifyDeep<DefaultConfig & T>;
 
 export function defineConfig<T extends object>(
   options: DefineConfigOptions,
