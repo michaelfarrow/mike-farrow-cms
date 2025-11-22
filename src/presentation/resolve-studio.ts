@@ -18,7 +18,7 @@ function createTypeResolver<PR extends PathResolver<any>>(pathResolve: PR) {
   }: {
     filter: string;
     locations: (
-      doc: PT & PartialDeep<T>,
+      doc: (PT & PartialDeep<T>) | undefined,
       resolvePath: PR
     ) => {
       title: string;
@@ -26,7 +26,7 @@ function createTypeResolver<PR extends PathResolver<any>>(pathResolve: PR) {
     }[];
   }) => {
     return {
-      locations: (doc: PT & PartialDeep<T>) => {
+      locations: (doc: (PT & PartialDeep<T>) | undefined) => {
         const items = locations(doc, pathResolve);
         if (!items.length) return null;
         return items;
@@ -68,20 +68,18 @@ function createSlugTypeResolver({
   return createTypeResolver(detail)<{ name: string; title: string }>({
     filter: `_type == "${type}" && slug.current == $slug.current`,
     locations: (doc, resolvePath) => {
-      if (doc.slug && doc.slug.current) {
-        const slug = { current: doc.slug.current };
-        return [
-          {
-            title: doc.name || doc.title || 'Untitled',
-            href: resolvePath({ ...doc, slug }),
-          },
-          {
-            title: index.title || `${titleCase(capitalCase(type))} index`,
-            href: `${index()}`,
-          },
-        ];
-      }
-      return [];
+      if (!doc?.slug?.current) return [];
+      const slug = { current: doc.slug.current };
+      return [
+        {
+          title: doc.name || doc.title || 'Untitled',
+          href: resolvePath({ ...doc, slug }),
+        },
+        {
+          title: index.title || `${titleCase(capitalCase(type))} index`,
+          href: `${index()}`,
+        },
+      ];
     },
   });
 }
