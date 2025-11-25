@@ -1,6 +1,6 @@
 {
   "name": "@mikefarrow/cms",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "main": "exports.ts",
   "scripts": {
     "dev": "concurrently --prefix ' ' -c 'bgGreen,bgRed,bgMagenta' \"sanity dev\" \"npm run watch:schemas\" \"npm run watch:queries\"",

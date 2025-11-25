@@ -18,7 +18,7 @@ type DefaultConfig = ReturnType<typeof getDefaultConfig>;
 
 function getDefaultConfig({ dataset }: DefineConfigOptions) {
   return {
-    title: 'Mike Farrow',
+    title: 'Mike Farrow Portfolio',
     studio: {
       projectId: 'h0q0fht4',
       dataset: dataset || 'development',
