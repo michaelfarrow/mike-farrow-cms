@@ -74,9 +74,26 @@ export const project = defineType({
     contentArrayField({ name: 'content' }),
     defineField({
       name: 'client',
-      type: 'reference',
+      type: 'array',
       fieldset: 'links',
-      to: [{ type: 'contact' }],
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'contact' }],
+        }),
+      ],
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'via',
+      type: 'array',
+      fieldset: 'links',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'contact' }],
+        }),
+      ],
     }),
     defineField({
       name: 'attributions',
