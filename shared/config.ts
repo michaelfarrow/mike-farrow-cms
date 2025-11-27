@@ -22,7 +22,7 @@ function getDefaultConfig({ dataset }: DefineConfigOptions) {
     studio: {
       projectId: 'h0q0fht4',
       dataset: dataset || 'development',
-      apiVersion: 'vX',
+      apiVersion: 'v2025-11-27',
     },
     breakpoints: {
       sm: { name: 'Small', width: 640 },
