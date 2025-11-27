@@ -1,6 +1,6 @@
 {
   "name": "@mikefarrow/cms",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "main": "exports.ts",
   "scripts": {
     "dev": "concurrently --prefix ' ' -c 'bgGreen,bgRed,bgMagenta' \"sanity dev\" \"npm run watch:schemas\" \"npm run watch:queries\"",
@@ -25,7 +25,7 @@
     "type-fest": "^5.2.0"
   },
   "devDependencies": {
-    "@mikefarrow/prettier": "github:michaelfarrow/prettier#3.6.2-1",
+    "@mikefarrow/prettier": "github:michaelfarrow/prettier#28eac082c27b13061f92dc6ba1d7563f04eb6a4f",
     "@sanity/code-input": "^6.0.1",
     "@sanity/eslint-config-studio": "^5.0.2",
     "@sanity/google-maps-input": "^4.2.0",

@@ -40,7 +40,15 @@ export function titleFields({
             type: 'slug',
             name: 'slug',
             options: { source: 'name' },
-            validation: (rule) => rule.required(),
+            validation: (rule) =>
+              rule
+                .required()
+                .custom(
+                  (slug) =>
+                    (slug?.current &&
+                      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug.current)) ||
+                    'Invalid slug format'
+                ),
             hidden: ({ document }) => !document?.name,
           }),
         ]
