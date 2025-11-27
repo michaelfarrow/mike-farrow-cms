@@ -1,6 +1,7 @@
 import { SimplifyDeep } from 'type-fest';
 
-import { mergeDeep } from './lib/utils';
+import { mergeDeep } from '../lib/utils';
+import breakpoints from './breakpoints.json';
 
 const env = process.env.NODE_ENV;
 const production = env === 'production';
@@ -24,13 +25,7 @@ function getDefaultConfig({ dataset }: DefineConfigOptions) {
       dataset: dataset || 'development',
       apiVersion: 'v2025-11-27',
     },
-    breakpoints: {
-      sm: { name: 'Small', width: 640 },
-      md: { name: 'Medium', width: 768 },
-      lg: { name: 'Large', width: 1024 },
-      xl: { name: 'Extra Large', width: 1280 },
-      '2xl': { name: '2x Extra Large', width: 1536 },
-    },
+    breakpoints,
     videoTypes: {
       youTube:
         /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(?:-nocookie)?\.com|youtu.be))(\/(?:[\w-]+\?v=|embed\/|live\/|v\/)?)([\w-]+)(\S+)?$/,
