@@ -1,7 +1,8 @@
 import { SimplifyDeep } from 'type-fest';
 
 import { mergeDeep } from '../lib/utils';
-import breakpoints from './breakpoints.json';
+import breakpoints from './breakpoints.export';
+import videoTypes from './video-types.export';
 
 const env = process.env.NODE_ENV;
 const production = env === 'production';
@@ -26,12 +27,7 @@ function getDefaultConfig({ dataset }: DefineConfigOptions) {
       apiVersion: 'v2025-11-27',
     },
     breakpoints,
-    videoTypes: {
-      youTube:
-        /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(?:-nocookie)?\.com|youtu.be))(\/(?:[\w-]+\?v=|embed\/|live\/|v\/)?)([\w-]+)(\S+)?$/,
-      vimeo:
-        /^(?:http|https)?:?\/?\/?(?:www\.)?(?:player\.)?vimeo\.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^/]*)\/videos\/|video\/|)(\d+)(?:|\/\?)$/,
-    },
+    videoTypes,
     url: {
       app: production ? 'https://app.farrow.io' : 'http://localhost:3000',
     },

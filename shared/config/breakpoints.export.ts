@@ -1,4 +1,4 @@
-{
+export default {
   "sm": { "name": "Small", "width": 640 },
   "md": { "name": "Medium", "width": 768 },
   "lg": { "name": "Large", "width": 1024 },

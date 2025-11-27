@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "exports": {
     ".": "./exports.ts",
-    "./*": "./shared/*.json"
+    "./*": "./shared/*.export.ts"
   },
   "scripts": {
     "dev": "concurrently --prefix ' ' -c 'bgGreen,bgRed,bgMagenta' \"sanity dev\" \"npm run watch:schemas\" \"npm run watch:queries\"",
