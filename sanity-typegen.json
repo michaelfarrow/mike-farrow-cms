@@ -1,6 +1,0 @@
-{
-  "path": ["src/lib/queries/**/*.{ts,tsx,js,jsx}"],
-  "generates": "sanity.d.ts",
-  "overloadClientMethods": true,
-  "formatGeneratedCode": false
-}

@@ -12,4 +12,11 @@ export default defineCliConfig({
   vite: {
     plugins: [tsconfigPaths()],
   },
+
+  typegen: {
+    path: ['src/lib/queries/**/*.{ts,tsx,js,jsx}'],
+    generates: 'sanity.d.ts',
+    overloadClientMethods: true,
+    formatGeneratedCode: false,
+  },
 });
